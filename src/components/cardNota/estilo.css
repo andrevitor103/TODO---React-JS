@@ -1,0 +1,28 @@
+.card-nota {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  margin: 4%;
+}
+
+.card-nota__cabecalho {
+  background-color: #069;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.card-nota__nota {
+  min-height: 210px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.concluido {
+  text-decoration: line-through;
+  background-color: rgba(0, 0, 0, 0.6);
+}

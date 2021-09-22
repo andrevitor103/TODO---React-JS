@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import "../src/assets/App.css";
+import FormularioNotas from "./components/formularioNotas/formularioNotas.js";
+import ListaNotas from "./components/listaNotas/listaNotas";
 function App() {
+  const [notas, setNotas] = useState([]);
+  const criarNota = async (titulo, conteudo) => {
+    const novaNota = await {
+      titulo: titulo,
+      conteudo: conteudo,
+      status: false,
+    };
+    setNotas([...notas, novaNota]);
+    console.log(notas);
+    console.log(`Nova nota ${titulo} conteudo ${conteudo}`);
+  };
+  const finalizarNota = async (idNota) => {
+    const notasAlteradas = await notas.map((item, index) => {
+      if (idNota === index) {
+        item.status = !item.status;
+      }
+      return item;
+    });
+    console.log(notasAlteradas);
+    setNotas([...notasAlteradas]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <FormularioNotas criarNota={criarNota} />
+      <ListaNotas notas={notas} finalizarNota={finalizarNota} />
     </div>
   );
 }

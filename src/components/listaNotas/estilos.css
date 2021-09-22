@@ -1,0 +1,17 @@
+.lista-notas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.lista-notas__item {
+  margin: 1% 1%;
+  list-style: none;
+  flex: 25%;
+}
+
+@media (max-width: 1000px) {
+  .lista-notas {
+    flex-direction: column;
+  }
+}
